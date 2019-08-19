@@ -38,7 +38,18 @@
             //echo "test: $test <br>";
         }
 
-        function applyMajorRoads(){
+        function applyRoads($width, $height, $inputMap){
+            $map = $inputMap;
+
+            $largeRoads = rand(1,sqrt(max($width, $height)));// * rand(1,3);
+            $smallRoads = rand(5,10)*$largeRoads;
+            echo "Large Roads: $largeRoads <br> Small Roads: $smallRoads <br>";
+
+
+            return $map;
+        }
+
+        /*function applyMajorRoads(){
             //get number of large roads
             $numberOfRoads = 0;
             placeMajorRoads($numberOfRoads);
@@ -73,18 +84,25 @@
         function displayMapToUser(){
             //load image based on seed
             //display to user
-        }
+        }*/
+
+
+        setSeed();
+        setMap();
+        $map = applyRoads($x,$y, $map);
+
+
 
         
     
         //echo "$x x $y <br>";
-        setSeed();
-        setMap();
+        //setSeed();
+        //setMap();
         //check if there is already a saved map for that seed, if so just load
-        applyMajorRoads();
-        applyMinorRoads();
-        exportMapToImage();
-        displayMapToUser();
+        //applyMajorRoads();
+        //applyMinorRoads();
+        //exportMapToImage();
+        //displayMapToUser();
 
         //takes $image and turns it into jpeg
         //imagejpeg($image);
